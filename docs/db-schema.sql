@@ -1,6 +1,8 @@
 -- 校园教室预约管理系统数据库结构
 -- 目标数据库：MySQL 8.0+
 
+SET NAMES utf8mb4;
+
 CREATE TABLE IF NOT EXISTS `user` (
     `id` BIGINT AUTO_INCREMENT PRIMARY KEY,
     `username` VARCHAR(50) NOT NULL,
