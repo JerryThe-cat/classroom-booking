@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>提交预约 - 校园教室预约系统</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="topbar">
+    <span class="brand">校园教室预约系统</span>
+    <span class="links">
+        <a th:href="@{/classrooms}">教室列表</a>
+        <a th:href="@{/my-bookings}">我的预约</a>
+        <a href="/login" id="logoutLink">退出</a>
+        <span class="muted" id="userName">未登录</span>
+    </span>
+</div>
+<div class="container">
+    <div class="card form-card">
+        <h2>提交预约</h2>
+        <p class="hint">同一时段可以有多个待审批申请，但最终只能通过一个。</p>
+        <div id="bookingError" class="error-msg" style="display:none;"></div>
+        <form id="bookingForm">
+            <div class="form-item">
+                <label for="classroomSelect">教室 <span class="req">*</span></label>
+                <select id="classroomSelect" required>
+                    <option value="">请选择教室</option>
+                </select>
+            </div>
+            <div class="form-grid">
+                <div class="form-item">
+                    <label for="startTime">开始时间 <span class="req">*</span></label>
+                    <input type="datetime-local" id="startTime" required>
+                </div>
+                <div class="form-item">
+                    <label for="endTime">结束时间 <span class="req">*</span></label>
+                    <input type="datetime-local" id="endTime" required>
+                </div>
+            </div>
+            <div class="form-item">
+                <label for="purpose">用途 <span class="req">*</span></label>
+                <input type="text" id="purpose" maxlength="255"
+                       placeholder="如：小组研讨 / 社团活动" required>
+            </div>
+            <div class="form-item">
+                <label for="expectedAttendees">预计人数 <span class="req">*</span></label>
+                <input type="number" id="expectedAttendees" min="1" required>
+            </div>
+            <button type="submit" id="bookingBtn" class="btn btn-primary btn-block">提交预约</button>
+        </form>
+        <p class="hint" style="margin-top:12px;">
+            <a th:href="@{/classrooms}">返回教室列表</a>
+        </p>
+    </div>
+</div>
+<script th:src="@{/js/lib/axios.min.js}"></script>
+<script th:src="@{/js/request.js}"></script>
+<script th:src="@{/js/booking.js}"></script>
+</body>
+</html>

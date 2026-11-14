@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册 - 校园教室预约系统</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="auth-wrap">
+    <div class="auth-card">
+        <h1 class="auth-title">注册学生账号</h1>
+        <p class="auth-sub">管理员账号由部署配置创建</p>
+        <div id="registerError" class="error-msg" style="display:none;"></div>
+        <form id="registerForm">
+            <div class="form-item">
+                <label for="username">学号</label>
+                <input type="text" id="username" placeholder="请输入学号" required>
+            </div>
+            <div class="form-item">
+                <label for="name">姓名</label>
+                <input type="text" id="name" placeholder="请输入姓名" required>
+            </div>
+            <div class="form-item">
+                <label for="password">密码</label>
+                <input type="password" id="password" placeholder="至少8个字符" required>
+            </div>
+            <div class="form-item">
+                <label for="confirmPassword">确认密码</label>
+                <input type="password" id="confirmPassword" placeholder="再次输入密码" required>
+            </div>
+            <div class="form-item">
+                <label for="department">院系</label>
+                <input type="text" id="department" placeholder="如：计算机学院" required>
+            </div>
+            <button type="submit" id="registerBtn" class="btn btn-primary btn-block">注册</button>
+        </form>
+        <p class="auth-link">已有账号？<a th:href="@{/login}">去登录</a></p>
+    </div>
+</div>
+<script th:src="@{/js/lib/axios.min.js}"></script>
+<script th:src="@{/js/request.js}"></script>
+<script th:src="@{/js/register.js}"></script>
+</body>
+</html>

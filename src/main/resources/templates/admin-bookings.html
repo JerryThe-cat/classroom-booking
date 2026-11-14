@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>全部预约 - 校园教室预约系统</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="topbar">
+    <span class="brand">校园教室预约系统</span>
+    <span class="links">
+        <a th:href="@{/admin/classrooms}">教室管理</a>
+        <a th:href="@{/admin/pending}">待审批</a>
+        <a th:href="@{/admin/bookings}">全部预约</a>
+        <a th:href="@{/admin/dashboard}">数据看板</a>
+        <a href="/login" id="logoutLink">退出</a>
+        <span class="muted" id="userName">未登录</span>
+    </span>
+</div>
+<div class="container">
+    <div class="card">
+        <h2>全部预约记录</h2>
+        <div class="form-item">
+            <label for="statusFilter">状态筛选</label>
+            <select id="statusFilter">
+                <option value="ALL">全部状态</option>
+                <option value="PENDING">待审批</option>
+                <option value="APPROVED">已通过</option>
+                <option value="REJECTED">已驳回</option>
+                <option value="CANCELLED">已取消</option>
+                <option value="RELEASED">已释放</option>
+            </select>
+        </div>
+        <div class="table-scroll">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>申请人</th>
+                    <th>教室</th>
+                    <th>起止时间</th>
+                    <th>用途</th>
+                    <th>状态</th>
+                    <th>审批人</th>
+                    <th>说明</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="bookingTable">
+                <tr><td colspan="9" class="hint">加载中...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/lib/axios.min.js}"></script>
+<script th:src="@{/js/request.js}"></script>
+<script th:src="@{/js/admin-bookings.js}"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>教室列表 - 校园教室预约系统</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="topbar">
+    <span class="brand">校园教室预约系统</span>
+    <span class="links">
+        <a th:href="@{/classrooms}">教室列表</a>
+        <a th:href="@{/my-bookings}">我的预约</a>
+        <a href="/login" id="logoutLink">退出</a>
+        <span class="muted" id="userName">未登录</span>
+    </span>
+</div>
+<div class="container">
+    <div class="card">
+        <h2>教室列表</h2>
+        <p class="hint">占用率每30秒自动刷新；无实时数据时会明确标记。</p>
+        <div class="form-item">
+            <label for="buildingFilter">按教学楼筛选</label>
+            <select id="buildingFilter">
+                <option value="ALL">全部教学楼</option>
+            </select>
+        </div>
+    </div>
+    <div class="class-grid" id="classGrid">
+        <p class="hint">加载中...</p>
+    </div>
+</div>
+<script th:src="@{/js/lib/axios.min.js}"></script>
+<script th:src="@{/js/request.js}"></script>
+<script th:src="@{/js/classrooms.js}"></script>
+</body>
+</html>

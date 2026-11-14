@@ -1,0 +1,214 @@
+/* ============ 基础样式（预开发版） ============
+ * 当前覆盖：登录页。其他页面可复用 .form-item / .btn / .btn-block。
+ * 移动端优先：输入框字号不小于 16px，按钮点击区域不小于 44px。
+ */
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: #f5f6f8;
+    color: #1f2329;
+    line-height: 1.6;
+}
+
+/* ---------- 登录 / 注册卡片 ---------- */
+.auth-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 380px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 28px 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.auth-title {
+    margin: 0 0 4px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.auth-sub {
+    margin: 0 0 20px;
+    text-align: center;
+    color: #646a73;
+    font-size: 14px;
+}
+
+.auth-link {
+    margin: 16px 0 0;
+    text-align: center;
+    font-size: 14px;
+    color: #646a73;
+}
+
+.auth-link a { color: #2563eb; text-decoration: none; }
+.auth-link a:hover { text-decoration: underline; }
+
+/* ---------- 表单 ---------- */
+.form-item {
+    margin-bottom: 14px;
+}
+
+.form-item label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-item input {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    font-size: 16px;
+    border: 1px solid #d0d3d9;
+    border-radius: 6px;
+    background: #ffffff;
+}
+
+.form-item input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* ---------- 按钮 ---------- */
+.btn {
+    display: inline-block;
+    height: 44px;
+    padding: 0 20px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover { background: #1d4ed8; }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-secondary {
+    background: #ffffff;
+    border-color: #b8c0cc;
+    color: #1f2329;
+}
+.btn-secondary:hover { background: #f3f4f6; }
+
+.btn-block {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* ---------- 错误提示 ---------- */
+.error-msg {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: #fdecea;
+    border: 1px solid #f5b8b1;
+    border-radius: 6px;
+    color: #c0392b;
+    font-size: 14px;
+}
+
+/* ============ 共享组件（预开发版，供业务页面复用） ============ */
+
+/* 顶部导航 */
+.topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e4e8;
+    padding: 10px 20px;
+}
+
+.topbar .brand { font-weight: 600; font-size: 16px; }
+.topbar .links { margin-left: auto; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.topbar .links a { color: #2563eb; text-decoration: none; font-size: 14px; }
+.topbar .links a:hover { text-decoration: underline; }
+.topbar .links .muted { color: #646a73; font-size: 14px; }
+
+/* 页面容器与卡片 */
+.container { max-width: 920px; margin: 0 auto; padding: 20px 16px; }
+.card {
+    background: #ffffff;
+    border: 1px solid #e2e4e8;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 14px;
+}
+.card h2 { margin: 0 0 8px; font-size: 18px; }
+.hint { color: #646a73; font-size: 13px; margin: 0 0 12px; }
+
+/* 表单网格（桌面两列） */
+.form-grid { display: grid; grid-template-columns: 1fr; gap: 0 14px; }
+@media (min-width: 768px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+.form-item select,
+.form-item textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #d0d3d9;
+    border-radius: 6px;
+    background: #ffffff;
+}
+
+/* 按钮补充 */
+.btn-ghost { background: #ffffff; border-color: #d0d3d9; color: #1f2329; }
+.btn-ghost:hover { background: #f3f4f6; }
+.btn-danger { background: #ffffff; border-color: #e5b3ae; color: #c0392b; }
+.btn-danger:hover { background: #fdecea; }
+.btn-sm { height: 36px; padding: 0 12px; font-size: 14px; }
+
+/* 表格 */
+.table-scroll { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 14px; }
+.table th, .table td { border: 1px solid #e2e4e8; padding: 10px 8px; text-align: left; vertical-align: middle; }
+.table th { background: #f3f4f6; font-weight: 600; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* 状态标签 */
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; line-height: 1.6; }
+.tag-pending  { background: #fdf3d7; color: #92600a; }
+.tag-approved { background: #e6f4ea; color: #1e7e34; }
+.tag-rejected { background: #fdecea; color: #c0392b; }
+.tag-gray     { background: #f0f1f3; color: #646a73; }
+
+/* 教室卡片 */
+.class-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 768px) { .class-grid { grid-template-columns: repeat(3, 1fr); } }
+.class-card .title { font-weight: 600; font-size: 16px; margin: 0 0 6px; }
+.class-card .meta { color: #646a73; font-size: 14px; margin: 0 0 6px; }
+.progress { height: 8px; background: #eceef1; border-radius: 4px; overflow: hidden; margin: 6px 0; }
+.progress .fill { height: 100%; background: #2563eb; border-radius: 4px; }
+.equip { display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* 数据看板 */
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (min-width: 768px) { .stat-grid { grid-template-columns: repeat(3, 1fr); } }
+.stat-card { text-align: center; }
+.stat-num { font-size: 28px; font-weight: 700; margin: 0 0 4px; }
+.stat-label { color: #646a73; font-size: 14px; }
+
+/* 教室详情 */
+.form-card { max-width: 640px; margin: 0 auto; }
+.detail-hero { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.detail-kicker { margin: 0 0 4px; color: #2563eb; font-size: 13px; font-weight: 600; }
+.detail-hero h2 { font-size: 26px; margin: 0 0 6px; }
+.occupancy-number { margin-top: 24px; font-size: 42px; font-weight: 700; color: #1f2329; }

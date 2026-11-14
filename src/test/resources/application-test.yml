@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:classroom_test;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE;NON_KEYWORDS=USER
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema-test.sql
+
+app:
+  jwt:
+    secret: test-secret-123456789012345678901234567890
+    expiration-hours: 2
+  admin-bootstrap:
+    username: admin
+    password: admin-test-pass
+    name: 测试管理员
+    department: 教务处
+  camera-bootstrap:
+    device-id: cam-A101-01
+    token: camera-test-token
+    classroom-id: 1
+
+logging:
+  level:
+    root: WARN
+    com.example.classroombooking: INFO

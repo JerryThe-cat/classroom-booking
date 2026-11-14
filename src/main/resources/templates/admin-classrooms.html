@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>教室管理 - 校园教室预约系统</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="topbar">
+    <span class="brand">校园教室预约系统</span>
+    <span class="links">
+        <a th:href="@{/admin/classrooms}">教室管理</a>
+        <a th:href="@{/admin/pending}">待审批</a>
+        <a th:href="@{/admin/bookings}">全部预约</a>
+        <a th:href="@{/admin/dashboard}">数据看板</a>
+        <a href="/login" id="logoutLink">退出</a>
+        <span class="muted" id="userName">未登录</span>
+    </span>
+</div>
+<div class="container">
+    <div class="card">
+        <h2 id="formTitle">新增教室</h2>
+        <form id="classroomForm">
+            <input type="hidden" id="classroomId">
+            <div class="form-grid">
+                <div class="form-item">
+                    <label for="roomNo">教室编号</label>
+                    <input type="text" id="roomNo" maxlength="50" required>
+                </div>
+                <div class="form-item">
+                    <label for="building">楼栋</label>
+                    <input type="text" id="building" maxlength="100" required>
+                </div>
+            </div>
+            <div class="form-grid">
+                <div class="form-item">
+                    <label for="capacity">容纳人数</label>
+                    <input type="number" id="capacity" min="1" required>
+                </div>
+                <div class="form-item">
+                    <label for="seatCount">座位总数</label>
+                    <input type="number" id="seatCount" min="1" required>
+                </div>
+            </div>
+            <div class="form-grid">
+                <div class="form-item">
+                    <label for="equipment">设备（英文逗号分隔）</label>
+                    <input type="text" id="equipment" maxlength="255"
+                           placeholder="投影仪,空调">
+                </div>
+                <div class="form-item">
+                    <label for="status">状态</label>
+                    <select id="status">
+                        <option value="ACTIVE">启用</option>
+                        <option value="INACTIVE">停用</option>
+                    </select>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit" id="saveClassroom" class="btn btn-primary">新增教室</button>
+                <button type="button" id="cancelEdit" class="btn btn-secondary"
+                        style="display:none;">取消编辑</button>
+                <button type="button" id="disableCurrent" class="btn btn-danger"
+                        style="display:none;">停用当前教室</button>
+            </div>
+        </form>
+    </div>
+    <div class="card">
+        <h2>教室列表</h2>
+        <div class="table-scroll">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>教室编号</th>
+                    <th>楼栋</th>
+                    <th>容纳人数</th>
+                    <th>座位数</th>
+                    <th>设备</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="classroomTable">
+                <tr><td colspan="7" class="hint">加载中...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/lib/axios.min.js}"></script>
+<script th:src="@{/js/request.js}"></script>
+<script th:src="@{/js/admin-classrooms.js}"></script>
+</body>
+</html>

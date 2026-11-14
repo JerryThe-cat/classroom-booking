@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: classroom-booking-integrated
+  datasource:
+    url: ${DB_URL:jdbc:mysql://127.0.0.1:3306/classroom_booking?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    time-zone: Asia/Shanghai
+  thymeleaf:
+    cache: false
+  sql:
+    init:
+      mode: never
+
+server:
+  port: ${SERVER_PORT:8080}
+  forward-headers-strategy: framework
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-exception: false
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: ${MYBATIS_LOG_IMPL:org.apache.ibatis.logging.nologging.NoLoggingImpl}
+
+app:
+  time-zone: Asia/Shanghai
+  jwt:
+    secret: ${JWT_SECRET:dev-only-classroom-booking-secret-change-before-production-2026}
+    expiration-hours: ${JWT_EXPIRATION_HOURS:24}
+  occupancy:
+    stale-after-seconds: ${OCCUPANCY_STALE_AFTER_SECONDS:300}
+  camera:
+    report-interval-seconds: ${CAMERA_REPORT_INTERVAL_SECONDS:30}
+  admin-bootstrap:
+    username: ${APP_ADMIN_USERNAME:}
+    password: ${APP_ADMIN_PASSWORD:}
+    name: ${APP_ADMIN_NAME:系统管理员}
+    department: ${APP_ADMIN_DEPARTMENT:教务处}
+  camera-bootstrap:
+    device-id: ${CAMERA_DEVICE_ID:}
+    token: ${CAMERA_DEVICE_TOKEN:}
+    classroom-id: ${CAMERA_CLASSROOM_ID:}
+
+logging:
+  level:
+    root: INFO
+    com.example.classroombooking: INFO

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我的预约 - 校园教室预约系统</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="topbar">
+    <span class="brand">校园教室预约系统</span>
+    <span class="links">
+        <a th:href="@{/classrooms}">教室列表</a>
+        <a th:href="@{/my-bookings}">我的预约</a>
+        <a href="/login" id="logoutLink">退出</a>
+        <span class="muted" id="userName">未登录</span>
+    </span>
+</div>
+<div class="container">
+    <div class="card">
+        <h2>我的预约</h2>
+        <p class="hint">待审批和已通过且尚未开始的预约可以取消。</p>
+        <div class="table-scroll">
+            <table class="table">
+                <colgroup>
+                    <col style="width:11%">
+                    <col style="width:16%">
+                    <col style="width:16%">
+                    <col style="width:12%">
+                    <col style="width:18%">
+                    <col style="width:17%">
+                    <col style="width:10%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>教室</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                    <th>状态</th>
+                    <th>用途</th>
+                    <th>审批/释放说明</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="myTable">
+                <tr><td colspan="7" class="hint">加载中...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/lib/axios.min.js}"></script>
+<script th:src="@{/js/request.js}"></script>
+<script th:src="@{/js/my-bookings.js}"></script>
+</body>
+</html>

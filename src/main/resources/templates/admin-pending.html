@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>待审批 - 校园教室预约系统</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="topbar">
+    <span class="brand">校园教室预约系统</span>
+    <span class="links">
+        <a th:href="@{/admin/classrooms}">教室管理</a>
+        <a th:href="@{/admin/pending}">待审批</a>
+        <a th:href="@{/admin/bookings}">全部预约</a>
+        <a th:href="@{/admin/dashboard}">数据看板</a>
+        <a href="/login" id="logoutLink">退出</a>
+        <span class="muted" id="userName">未登录</span>
+    </span>
+</div>
+<div class="container">
+    <div class="card">
+        <h2>待审批预约</h2>
+        <p class="hint">审批通过前，后端会再次检查同一教室的已通过预约冲突。</p>
+        <div class="table-scroll">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>申请人</th>
+                    <th>教室</th>
+                    <th>起止时间</th>
+                    <th>用途</th>
+                    <th>预计人数</th>
+                    <th>状态</th>
+                    <th>时段冲突</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="pendingTable">
+                <tr><td colspan="9" class="hint">加载中...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/lib/axios.min.js}"></script>
+<script th:src="@{/js/request.js}"></script>
+<script th:src="@{/js/admin-pending.js}"></script>
+</body>
+</html>
