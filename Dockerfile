@@ -3,10 +3,12 @@ WORKDIR /workspace
 
 COPY .mvn .mvn
 COPY mvnw pom.xml ./
-RUN chmod +x mvnw && ./mvnw -q -DskipTests dependency:go-offline
+COPY infra/maven/settings.xml /workspace/infra/maven/settings.xml
+RUN chmod +x mvnw \
+    && ./mvnw -s /workspace/infra/maven/settings.xml -q -DskipTests dependency:go-offline
 
 COPY src src
-RUN ./mvnw -q -DskipTests package
+RUN ./mvnw -s /workspace/infra/maven/settings.xml -q -DskipTests package
 
 FROM eclipse-temurin:25-jre
 WORKDIR /app
