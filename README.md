@@ -24,9 +24,9 @@
 
 - 先阅读[接口契约](docs/api-v1.md)，确认字段、路径、状态和错误码。
 - 根据[项目目录](#项目目录)定位前端页面、后端模块、数据库脚本或部署文件。
-- 摄像头成员同时阅读[摄像头方案说明](docs/camera-solution-guidance.md)。
+- 摄像头成员同时阅读[摄像头方案说明与整改约束](docs/摄像头方案说明与整改约束.md)。
 - 修改跨端接口前，先更新接口契约，再修改前后端或摄像头客户端。
-- 阅读[前后端改动说明](docs/frontend-backend-changes.md)了解当前结构与设计取舍。
+- 阅读[前后端改动说明](docs/前后端改动说明.md)了解当前结构与设计取舍。
 
 ## 系统架构
 
@@ -74,9 +74,9 @@ classroom-booking-integrated/
 │   ├── api-v1.md                    # 前后端与设备端接口契约
 │   ├── db-schema.sql                # MySQL 建表脚本
 │   ├── seed-dev.sql                 # 初始教室数据
-│   ├── frontend-backend-changes.md  # 架构与改动说明
-│   ├── camera-solution-guidance.md  # 摄像头方案与接口约束
-│   └── test-report.md               # 项目验证记录
+│   ├── 前后端改动说明.md              # 架构与改动说明
+│   ├── 摄像头方案说明与整改约束.md    # 摄像头方案与接口约束
+│   └── 测试报告.md                    # 项目验证记录
 │
 ├── infra/
 │   ├── maven/settings.xml           # Docker 构建 Maven 镜像
@@ -278,7 +278,7 @@ SERVER_PORT=18080 ./mvnw spring-boot:run
 - 不保存、不上传原始画面。
 - 设备通过 `X-Device-Id` 和 `X-Device-Token` 鉴权。
 - 上报路径为 `/api/v1/ai/occupancy/report`。
-- 字段和重试规则见[摄像头方案说明](docs/camera-solution-guidance.md)。
+- 字段和重试规则见[摄像头方案说明与整改约束](docs/摄像头方案说明与整改约束.md)。
 
 ### 配置与密钥
 
@@ -325,6 +325,6 @@ docker compose down
 ## 参考文档
 
 - [接口契约](docs/api-v1.md)
-- [前后端改动说明](docs/frontend-backend-changes.md)
-- [摄像头方案说明](docs/camera-solution-guidance.md)
-- [项目验证记录](docs/test-report.md)
+- [前后端改动说明](docs/前后端改动说明.md)
+- [摄像头方案说明与整改约束](docs/摄像头方案说明与整改约束.md)
+- [项目验证记录](docs/测试报告.md)
