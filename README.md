@@ -168,6 +168,13 @@ cp .env.example .env
 docker compose config
 ```
 
+## 项目文档
+
+- [接口契约](docs/api-v1.md)
+- [测试报告](docs/test-report.md)
+- [前后端改动说明](docs/frontend-backend-changes.md)
+- [摄像头方案说明](docs/camera-solution-guidance.md)
+
 ## 部署资源建议
 
 4核4G云服务器适合当前业务应用和 MySQL，前提是摄像头在教室本地运行。建议：
